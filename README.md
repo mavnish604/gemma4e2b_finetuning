@@ -45,17 +45,6 @@ A fully local, GPU-accelerated conversational AI that:
 - Converted the PEFT LoRA adapter to GGUF format using `llama.cpp`'s `convert_lora_to_gguf.py`
   - Result: `gguf_models/abhijit_lora.gguf` (203 MB)
 - **Speed result: ~45–56 tok/s** — 40x improvement over HF transformers
-
-### Phase 5 — Prompt Engineering
-- Observed that the LoRA captured **style** well but not **specific opinions** (e.g., Nehru critique)
-- Root cause: training data had only 5 Nehru mentions — not enough to override the base model's priors
-- Added a rich system prompt encoding Abhijit's known stances:
-  - Critical of Nehru (1962 war, non-alignment failures, Kashmir mishandling)
-  - Pakistan as an unstable, terrorism-sponsoring state
-  - India-first realpolitik lens
-  - Pride in ancient Indian civilisation and Sanatan Dharma
-- **Result:** Model now correctly critiques Nehru while LoRA handles tone/delivery
-
 ---
 
 ## Current Architecture
